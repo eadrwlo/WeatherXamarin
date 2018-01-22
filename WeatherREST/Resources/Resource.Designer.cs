@@ -41,6 +41,79 @@ namespace WeatherREST
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f040012
+			public const int condLabel = 2130968594;
+			
+			// aapt resource value: 0x7f040011
+			public const int condSection = 2130968593;
+			
+			// aapt resource value: 0x7f040013
+			public const int condText = 2130968595;
+			
+			// aapt resource value: 0x7f040006
+			public const int getSection = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int getWeatherButton = 2130968583;
+			
+			// aapt resource value: 0x7f04000f
+			public const int humidLabel = 2130968591;
+			
+			// aapt resource value: 0x7f04000e
+			public const int humidSection = 2130968590;
+			
+			// aapt resource value: 0x7f040010
+			public const int humidText = 2130968592;
+			
+			// aapt resource value: 0x7f040001
+			public const int latLabel = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int latSection = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int latText = 2130968578;
+			
+			// aapt resource value: 0x7f040009
+			public const int locLabel = 2130968585;
+			
+			// aapt resource value: 0x7f040008
+			public const int locSection = 2130968584;
+			
+			// aapt resource value: 0x7f04000a
+			public const int locationText = 2130968586;
+			
+			// aapt resource value: 0x7f040004
+			public const int longLabel = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int longSection = 2130968579;
+			
+			// aapt resource value: 0x7f040005
+			public const int longText = 2130968581;
+			
+			// aapt resource value: 0x7f04000c
+			public const int tempLabel = 2130968588;
+			
+			// aapt resource value: 0x7f04000b
+			public const int tempSection = 2130968587;
+			
+			// aapt resource value: 0x7f04000d
+			public const int tempText = 2130968589;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
