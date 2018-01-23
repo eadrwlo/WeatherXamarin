@@ -41,68 +41,90 @@ namespace WeatherREST
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int theme_devicedefault_background = 2130968576;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040012
-			public const int condLabel = 2130968594;
+			// aapt resource value: 0x7f060012
+			public const int condLabel = 2131099666;
 			
-			// aapt resource value: 0x7f040011
-			public const int condSection = 2130968593;
+			// aapt resource value: 0x7f060011
+			public const int condSection = 2131099665;
 			
-			// aapt resource value: 0x7f040013
-			public const int condText = 2130968595;
+			// aapt resource value: 0x7f060013
+			public const int condText = 2131099667;
 			
-			// aapt resource value: 0x7f040006
-			public const int getSection = 2130968582;
+			// aapt resource value: 0x7f060014
+			public const int getLoacationButton = 2131099668;
 			
-			// aapt resource value: 0x7f040007
-			public const int getWeatherButton = 2130968583;
+			// aapt resource value: 0x7f060006
+			public const int getSection = 2131099654;
 			
-			// aapt resource value: 0x7f04000f
-			public const int humidLabel = 2130968591;
+			// aapt resource value: 0x7f060007
+			public const int getWeatherButton = 2131099655;
 			
-			// aapt resource value: 0x7f04000e
-			public const int humidSection = 2130968590;
+			// aapt resource value: 0x7f06000f
+			public const int humidLabel = 2131099663;
 			
-			// aapt resource value: 0x7f040010
-			public const int humidText = 2130968592;
+			// aapt resource value: 0x7f06000e
+			public const int humidSection = 2131099662;
 			
-			// aapt resource value: 0x7f040001
-			public const int latLabel = 2130968577;
+			// aapt resource value: 0x7f060010
+			public const int humidText = 2131099664;
 			
-			// aapt resource value: 0x7f040000
-			public const int latSection = 2130968576;
+			// aapt resource value: 0x7f060001
+			public const int latLabel = 2131099649;
 			
-			// aapt resource value: 0x7f040002
-			public const int latText = 2130968578;
+			// aapt resource value: 0x7f060000
+			public const int latSection = 2131099648;
 			
-			// aapt resource value: 0x7f040009
-			public const int locLabel = 2130968585;
+			// aapt resource value: 0x7f060002
+			public const int latText = 2131099650;
 			
-			// aapt resource value: 0x7f040008
-			public const int locSection = 2130968584;
+			// aapt resource value: 0x7f060009
+			public const int locLabel = 2131099657;
 			
-			// aapt resource value: 0x7f04000a
-			public const int locationText = 2130968586;
+			// aapt resource value: 0x7f060008
+			public const int locSection = 2131099656;
 			
-			// aapt resource value: 0x7f040004
-			public const int longLabel = 2130968580;
+			// aapt resource value: 0x7f06000a
+			public const int locationText = 2131099658;
 			
-			// aapt resource value: 0x7f040003
-			public const int longSection = 2130968579;
+			// aapt resource value: 0x7f060015
+			public const int locationTextView = 2131099669;
 			
-			// aapt resource value: 0x7f040005
-			public const int longText = 2130968581;
+			// aapt resource value: 0x7f060004
+			public const int longLabel = 2131099652;
 			
-			// aapt resource value: 0x7f04000c
-			public const int tempLabel = 2130968588;
+			// aapt resource value: 0x7f060003
+			public const int longSection = 2131099651;
 			
-			// aapt resource value: 0x7f04000b
-			public const int tempSection = 2130968587;
+			// aapt resource value: 0x7f060005
+			public const int longText = 2131099653;
 			
-			// aapt resource value: 0x7f04000d
-			public const int tempText = 2130968589;
+			// aapt resource value: 0x7f06000c
+			public const int tempLabel = 2131099660;
+			
+			// aapt resource value: 0x7f06000b
+			public const int tempSection = 2131099659;
+			
+			// aapt resource value: 0x7f06000d
+			public const int tempText = 2131099661;
 			
 			static Id()
 			{
@@ -142,6 +164,22 @@ namespace WeatherREST
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Theme_Custom = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

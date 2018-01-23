@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    tools:gridSpec="1|8|#0093eeff|K:#ee8700ff:16,l:72,l:16,r|S:#0080ffff:16,0,l:16,56,l:16,0,r">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
@@ -11,19 +13,20 @@
         android:gravity="center_horizontal"
         android:id="@+id/latSection">
         <TextView
-            android:text="Enter Latitude:"
+            android:text="Latitude:"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
+            android:layout_width="112.0dp"
+            android:layout_height="22.0dp"
             android:gravity="right"
-            android:id="@+id/latLabel" />
+            android:id="@+id/latLabel"
+            android:layout_marginRight="24.5dp" />
         <EditText
-            android:text="47.7"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="40.0dp"
             android:id="@+id/latText"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginLeft="5dp" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="5dp"
+            android:editable="false" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -33,19 +36,22 @@
         android:gravity="center_horizontal"
         android:id="@+id/longSection">
         <TextView
-            android:text="Enter Longitude:"
+            android:text="Longitude:"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
+            android:layout_width="114.5dp"
+            android:layout_height="23.0dp"
             android:gravity="right"
-            android:id="@+id/longLabel" />
+            android:id="@+id/longLabel"
+            android:layout_marginLeft="0.0dp"
+            android:layout_marginRight="14.0dp" />
         <EditText
-            android:text="-122.5"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="38.5dp"
             android:id="@+id/longText"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginLeft="5dp" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0.0dp"
+            android:editable="false" />
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -53,22 +59,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:id="@+id/getSection">
+        android:id="@+id/getSection"
+        android:minWidth="25px"
+        android:minHeight="25px">
         <Button
             android:id="@+id/getWeatherButton"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="42.0dp"
             android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Get Weather" />
+            android:text="Get Weather"
+            android:layout_marginTop="2.0dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="14.5dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45.0dp"
         android:id="@+id/locSection">
         <TextView
             android:text="Location:"
@@ -114,7 +123,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="26.0dp"
         android:id="@+id/humidSection">
         <TextView
             android:text="Humidity:"
@@ -137,8 +146,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/condSection">
+        android:layout_height="49.0dp"
+        android:id="@+id/condSection"
+        android:layout_marginBottom="0.0dp">
         <TextView
             android:text="Conditions:"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -154,4 +164,20 @@
             android:gravity="left"
             android:id="@+id/condText" />
     </LinearLayout>
+    <Button
+        android:text="Get location"
+        android:layout_width="match_parent"
+        android:layout_height="34.5dp"
+        android:id="@+id/getLoacationButton"
+        android:layout_marginLeft="77.0dp"
+        android:layout_marginRight="79.5dp" />
+    <TextView
+        android:text="Location"
+        android:layout_width="248.0dp"
+        android:layout_height="93.5dp"
+        android:id="@+id/locationTextView"
+        android:layout_marginLeft="68.5dp"
+        android:layout_marginBottom="11.0dp"
+        android:layout_marginTop="8.0dp"
+        android:layout_marginRight="48.0dp" />
 </LinearLayout>
