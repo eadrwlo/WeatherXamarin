@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Json;
 using System.Linq;
@@ -7,10 +8,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
+using Android.Content;
 using Android.Locations;
 using Android.OS;
 using Android.Util;
 using Android.Widget;
+using Mono.Data.Sqlite;
 
 namespace WeatherREST
 {
@@ -18,6 +21,7 @@ namespace WeatherREST
    [Activity(Label = "WeatherREST", MainLauncher = true)]
     public class MainActivity : Activity, ILocationListener
     {
+        static readonly List<string> weathers = new List<string>();
         static readonly string TAG = "X:" + typeof(MainActivity).Name;
         Location _currentLocation;
         LocationManager _locationManager;
@@ -26,6 +30,9 @@ namespace WeatherREST
         Button getWeatherButton;
         EditText latitude;
         EditText longitude;
+        Button goWeatherHistoryButton;
+        Context appContext;
+     
         public async void OnLocationChanged(Location location)
         {
             _currentLocation = location;
@@ -54,16 +61,19 @@ namespace WeatherREST
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
-
             locationTextView = FindViewById<TextView>(Resource.Id.locationTextView);
             FindViewById<Button>(Resource.Id.getLoacationButton).Click += AddressButton_OnClick;
-
+             
             latitude = FindViewById<EditText>(Resource.Id.latText);
             longitude = FindViewById<EditText>(Resource.Id.longText);
             getWeatherButton = FindViewById<Button>(Resource.Id.getWeatherButton);
-
+            goWeatherHistoryButton = FindViewById<Button>(Resource.Id.goWeatherHistory);
+            goWeatherHistoryButton.Click += GoWeatherHistoryButton_OnClickAsync;
+            appContext = ApplicationContext;
+            CreateDatabase();
             getWeatherButton.Click += async (sender, e) =>
             {
+                var ctxt = getWeatherButton.Context;
                 if(_currentLocation != null)
                 {
                     Console.Out.WriteLine("getWeatherButton.Click");
@@ -83,13 +93,64 @@ namespace WeatherREST
                 }
                 else
                 {
-                    latitude.Text = "Waiting for location. Try again in a short while.";
-                    longitude.Text = "Waiting for location. Try again in a short while.";
+                    var reason = string.Format("Waiting for obtain localization...");
+                    Toast.MakeText(ctxt, reason, ToastLength.Long).Show();
                 }
                 
             };
             InitializeLocationManager();
         }
+
+        private void GoWeatherHistoryButton_OnClickAsync(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(WeatherHistory));
+            intent.PutStringArrayListExtra("weathers", weathers);
+            StartActivity(intent);
+        }
+
+        private async void CreateDatabase()
+        {
+            var docsFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            var pathToDatabase = System.IO.Path.Combine(docsFolder, "db_adonet.db");
+            SqliteConnection.CreateFile(pathToDatabase);
+            if (!File.Exists(pathToDatabase))
+            {
+                var reason = string.Format("The database failed to create - reason");
+                Toast.MakeText(appContext, reason, ToastLength.Long).Show();
+            }
+            else
+            {
+                var reason = string.Format("The database success to create - reason");
+                Toast.MakeText(appContext, reason, ToastLength.Long).Show();
+                locationTextView.Text += await CreateTable(pathToDatabase);
+            }
+        }
+
+        private async Task<string> CreateTable(string path)
+        {
+            // create a connection string for the database
+            var connectionString = string.Format("Data Source={0};Version=3;", path);
+            try
+            {
+                using (var conn = new SqliteConnection((connectionString)))
+                {
+                    await conn.OpenAsync();
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandText = "CREATE TABLE WeatherHistory (MeasID INTEGER PRIMARY KEY AUTOINCREMENT, Localization ntext, Temperature ntext)";
+                        command.CommandType = CommandType.Text;
+                        await command.ExecuteNonQueryAsync();
+                        return "Database table created successfully";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var reason = string.Format("Failed to insert into the database - reason = {0}", ex.Message);
+                return reason;
+            }
+        }
+
         void InitializeLocationManager()
         {
             _locationManager = (LocationManager)GetSystemService(LocationService);
@@ -183,6 +244,7 @@ namespace WeatherREST
                 JsonArray weatherArray = (JsonArray)json["weather"];
                 JsonValue weather = weatherArray[0];
                 conditions.Text = weather["description"];
+                weathers.Add("Condition = " + conditions.Text.ToString() + "Humidity = " + humidity.Text.ToString() + "Temp = " + temperature.Text.ToString());
             }
         }
 

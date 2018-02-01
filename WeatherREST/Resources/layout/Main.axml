@@ -165,6 +165,13 @@
             android:id="@+id/condText" />
     </LinearLayout>
     <Button
+        android:text="WEATHER HISTORY"
+        android:layout_width="251.0dp"
+        android:layout_height="34.0dp"
+        android:id="@+id/goWeatherHistory"
+        android:layout_marginLeft="65.0dp"
+        android:layout_marginRight="66.5dp" />
+    <Button
         android:text="Get location"
         android:layout_width="match_parent"
         android:layout_height="34.5dp"

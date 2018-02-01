@@ -69,14 +69,17 @@ namespace WeatherREST
 			// aapt resource value: 0x7f060013
 			public const int condText = 2131099667;
 			
-			// aapt resource value: 0x7f060014
-			public const int getLoacationButton = 2131099668;
+			// aapt resource value: 0x7f060015
+			public const int getLoacationButton = 2131099669;
 			
 			// aapt resource value: 0x7f060006
 			public const int getSection = 2131099654;
 			
 			// aapt resource value: 0x7f060007
 			public const int getWeatherButton = 2131099655;
+			
+			// aapt resource value: 0x7f060014
+			public const int goWeatherHistory = 2131099668;
 			
 			// aapt resource value: 0x7f06000f
 			public const int humidLabel = 2131099663;
@@ -105,8 +108,8 @@ namespace WeatherREST
 			// aapt resource value: 0x7f06000a
 			public const int locationText = 2131099658;
 			
-			// aapt resource value: 0x7f060015
-			public const int locationTextView = 2131099669;
+			// aapt resource value: 0x7f060016
+			public const int locationTextView = 2131099670;
 			
 			// aapt resource value: 0x7f060004
 			public const int longLabel = 2131099652;
